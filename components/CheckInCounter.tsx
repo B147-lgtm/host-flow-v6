@@ -9,7 +9,7 @@ import {
   Car, 
   Users, 
   Calendar, 
-  CheckCircle2, 
+  CircleCheck, 
   Home,
   ShieldCheck,
   ClipboardCheck,
@@ -21,8 +21,7 @@ import {
   ChevronDown,
   ChevronUp,
   AlertCircle,
-  // Added AlertTriangle to imports
-  AlertTriangle,
+  TriangleAlert,
   Package,
   Star,
   X,
@@ -217,7 +216,7 @@ const CheckInCounter: React.FC<CheckInCounterProps> = ({ onCheckInComplete, prop
   if (isSuccess) {
     return (
       <div className="max-w-xl mx-auto py-24 text-center animate-in zoom-in-95 duration-500">
-        <div className="w-24 h-24 bg-emerald-50 text-emerald-600 rounded-[2.5rem] flex items-center justify-center mx-auto mb-8 shadow-xl border-4 border-white"><CheckCircle2 className="w-12 h-12" /></div>
+        <div className="w-24 h-24 bg-emerald-50 text-emerald-600 rounded-[2.5rem] flex items-center justify-center mx-auto mb-8 shadow-xl border-4 border-white"><CircleCheck className="w-12 h-12" /></div>
         <h1 className="text-4xl font-black text-slate-900 mb-4 tracking-tighter uppercase">Checked In</h1>
         <p className="text-slate-500 mb-12 font-bold uppercase text-[10px] tracking-[0.3em]">Ledger Updated • Credentials Synced</p>
         <button onClick={resetCounter} className="w-full py-5 bg-slate-900 text-white rounded-3xl font-black uppercase tracking-[0.2em] text-[10px] hover:bg-emerald-600 transition-all shadow-2xl active:scale-95">Reset Counter</button>
@@ -237,7 +236,7 @@ const CheckInCounter: React.FC<CheckInCounterProps> = ({ onCheckInComplete, prop
           </p>
         </div>
         
-        <div className="flex items-center gap-6 bg-white p-4 rounded-3xl border border-slate-100 shadow-sm flex items-center gap-6">
+        <div className="flex items-center gap-6 bg-white p-4 rounded-3xl border border-slate-100 shadow-sm">
            <div className="text-right">
              <p className="text-[9px] font-black text-slate-400 uppercase tracking-widest mb-1">ID Vault Sync</p>
              <div className="flex items-center gap-2">
@@ -306,7 +305,7 @@ const CheckInCounter: React.FC<CheckInCounterProps> = ({ onCheckInComplete, prop
                             <div className={`w-12 h-12 rounded-2xl flex items-center justify-center font-black transition-all ${
                               guest.idFileData ? 'bg-emerald-600 text-white shadow-lg' : 'bg-slate-50 text-slate-300'
                             }`}>
-                              {guest.idFileData ? <CheckCircle2 className="w-6 h-6" /> : idx + 1}
+                              {guest.idFileData ? <CircleCheck className="w-6 h-6" /> : idx + 1}
                             </div>
                             <div>
                                <p className={`font-black uppercase tracking-tight text-sm ${guest.name ? 'text-slate-900' : 'text-slate-300 italic'}`}>
@@ -358,7 +357,7 @@ const CheckInCounter: React.FC<CheckInCounterProps> = ({ onCheckInComplete, prop
                                       {guest.isProcessing ? (
                                         <Loader2 className="w-8 h-8 animate-spin text-indigo-500" />
                                       ) : guest.idFileData ? (
-                                        <><CheckCircle2 className="w-10 h-10 text-emerald-500" /><p className="text-[9px] font-black uppercase tracking-widest">Captured</p></>
+                                        <><CircleCheck className="w-10 h-10 text-emerald-500" /><p className="text-[9px] font-black uppercase tracking-widest">Captured</p></>
                                       ) : (
                                         <><Upload className="w-8 h-8 text-slate-200" /><p className="text-[9px] font-black uppercase tracking-widest">Select ID Photo</p></>
                                       )}
@@ -398,7 +397,7 @@ const CheckInCounter: React.FC<CheckInCounterProps> = ({ onCheckInComplete, prop
 
                    <div className={`p-8 rounded-[3rem] border-2 transition-all duration-500 ${isAllIdCaptured ? 'bg-emerald-50 border-emerald-100' : 'bg-rose-50 border-rose-100'}`}>
                       <div className="flex items-start gap-4">
-                        {isAllIdCaptured ? <CheckCircle2 className="w-6 h-6 text-emerald-600 shrink-0" /> : <AlertTriangle className="w-6 h-6 text-rose-500 shrink-0" />}
+                        {isAllIdCaptured ? <CircleCheck className="w-6 h-6 text-emerald-600 shrink-0" /> : <TriangleAlert className="w-6 h-6 text-rose-500 shrink-0" />}
                         <div>
                           <p className={`text-[10px] font-black uppercase tracking-widest ${isAllIdCaptured ? 'text-emerald-900' : 'text-rose-900'}`}>
                             {isAllIdCaptured ? 'Ready to Sync' : 'Capture Required'}
@@ -456,7 +455,7 @@ const CheckInCounter: React.FC<CheckInCounterProps> = ({ onCheckInComplete, prop
                          <h4 className="font-black text-lg leading-none mb-3 uppercase tracking-tighter">{opt.title}</h4>
                          <p className={`text-[11px] font-medium leading-relaxed mb-8 flex-1 ${active ? 'text-indigo-100' : 'text-slate-400'}`}>{opt.desc}</p>
                          <div className="flex justify-end">
-                            {active && <CheckCircle2 className="w-7 h-7 text-white" />}
+                            {active && <CircleCheck className="w-7 h-7 text-white" />}
                          </div>
                        </button>
                      );
@@ -517,7 +516,7 @@ const CheckInCounter: React.FC<CheckInCounterProps> = ({ onCheckInComplete, prop
 
                      <div className="flex items-start gap-6 bg-white/5 p-8 rounded-3xl border border-white/5 cursor-pointer" onClick={() => setStayDetails({...stayDetails, agreeRules: !stayDetails.agreeRules})}>
                         <div className={`w-10 h-10 rounded-xl border-2 flex items-center justify-center transition-all ${stayDetails.agreeRules ? 'bg-emerald-500 border-emerald-500 text-white' : 'bg-white/5 border-white/20'}`}>
-                           {stayDetails.agreeRules && <CheckCircle2 className="w-6 h-6" />}
+                           {stayDetails.agreeRules && <CircleCheck className="w-6 h-6" />}
                         </div>
                         <div>
                            <p className="font-black text-sm uppercase tracking-tight">Authorize Digital Entry</p>
@@ -529,7 +528,7 @@ const CheckInCounter: React.FC<CheckInCounterProps> = ({ onCheckInComplete, prop
 
                <div className="flex gap-4">
                   <button type="button" onClick={() => setStep(2)} className="px-8 py-5 text-slate-400 font-black uppercase text-[10px] tracking-widest hover:text-slate-900 transition-all">Edit Tier</button>
-                  <button type="submit" disabled={!stayDetails.agreeRules} className="flex-1 py-6 bg-emerald-600 disabled:opacity-30 text-white rounded-[2rem] font-black text-xs uppercase tracking-[0.5em] shadow-xl shadow-emerald-500/10 flex items-center justify-center gap-3">Sync to Master Ledger <CheckCircle2 className="w-5 h-5" /></button>
+                  <button type="submit" disabled={!stayDetails.agreeRules} className="flex-1 py-6 bg-emerald-600 disabled:opacity-30 text-white rounded-[2rem] font-black text-xs uppercase tracking-[0.5em] shadow-xl shadow-emerald-500/10 flex items-center justify-center gap-3">Sync to Master Ledger <CircleCheck className="w-5 h-5" /></button>
                </div>
             </div>
           )}

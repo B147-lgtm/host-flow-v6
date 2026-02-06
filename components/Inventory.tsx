@@ -5,17 +5,17 @@ import {
   Plus, 
   Minus,
   Search, 
-  PlusCircle, 
+  CirclePlus, 
   Trash2, 
   RotateCcw,
   Filter,
   Package,
-  AlertTriangle,
+  TriangleAlert,
   X,
   Save,
-  CheckCircle2,
-  Edit3,
-  Settings2
+  CircleCheck,
+  Edit,
+  Settings
 } from 'lucide-react';
 import { MOCK_INVENTORY } from '../constants';
 
@@ -134,7 +134,7 @@ const Inventory: React.FC<InventoryProps> = ({ propertyName, inventoryItems, onU
             onClick={() => setIsAddModalOpen(true)}
             className="px-8 py-4 bg-slate-900 text-white rounded-2xl font-black text-[10px] uppercase tracking-widest flex items-center gap-3 shadow-2xl active:scale-95 hover:bg-emerald-600 transition-all"
           >
-            <PlusCircle className="w-4 h-4" />
+            <CirclePlus className="w-4 h-4" />
             Add New Article
           </button>
         </div>
@@ -261,7 +261,7 @@ const Inventory: React.FC<InventoryProps> = ({ propertyName, inventoryItems, onU
                           status === StockStatus.LOW_STOCK ? 'bg-amber-50 text-amber-600 border-amber-100' :
                           'bg-rose-50 text-rose-600 border-rose-100'
                         }`}>
-                          {status === StockStatus.IN_STOCK ? <CheckCircle2 className="w-3.5 h-3.5" /> : <AlertTriangle className="w-3.5 h-3.5" />}
+                          {status === StockStatus.IN_STOCK ? <CircleCheck className="w-3.5 h-3.5" /> : <TriangleAlert className="w-3.5 h-3.5" />}
                           {status}
                         </div>
                       </td>
@@ -272,7 +272,7 @@ const Inventory: React.FC<InventoryProps> = ({ propertyName, inventoryItems, onU
                             className="p-3 text-slate-400 hover:text-indigo-600 hover:bg-indigo-50 rounded-xl transition-all"
                             title="Edit Article & Unit"
                           >
-                            <Edit3 className="w-5 h-5" />
+                            <Edit className="w-5 h-5" />
                           </button>
                           <button 
                             onClick={() => handleDeleteItem(item.id)}
@@ -299,7 +299,7 @@ const Inventory: React.FC<InventoryProps> = ({ propertyName, inventoryItems, onU
             <div className="p-10 border-b border-slate-100 flex items-center justify-between bg-indigo-50/30">
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 bg-indigo-600 rounded-2xl flex items-center justify-center text-white">
-                  <Settings2 className="w-6 h-6" />
+                  <Settings className="w-6 h-6" />
                 </div>
                 <div>
                   <h2 className="text-2xl font-black text-slate-900 uppercase tracking-tight">Edit Identity</h2>
